@@ -1,0 +1,53 @@
+h1 {
+  position: relative;
+  left: 35vw;
+}
+body {
+  background: beige;
+}
+.container {
+  background: white;
+  height: 45vw;
+}
+p {
+  font-size: 30px;
+}
+.line {
+  color: grey;
+}
+
+.message {
+  background: whitesmoke;
+  width: 70vw;
+  height: 25vw;
+  border: dashed;
+  color: grey;
+  font-size: 30px;
+}
+.button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  margin: 4px 2px;
+  width: 30vw;
+}
+.button5 {
+  border-radius: 30px;
+}
+.button2 {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  margin: 4px 2px;
+  width: 30vw;
+}
