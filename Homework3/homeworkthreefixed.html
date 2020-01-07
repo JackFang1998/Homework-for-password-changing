@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+ <link
+   rel="stylesheet"
+   href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+   integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+   crossorigin="anonymous"
+ />
+ <link rel="stylesheet" href="HomeWorkThree.css" />
+ <title>Document</title>
+</head>
+
+<body>
+ <div class="row">
+   <div class="col-lg-12">
+     <h1>passward generator</h1>
+   </div>
+ 
+ </div>
+
+ <div class="container">
+     <!--the container that hold all items--> 
+   <div class="row">
+       <div class="col-lg-12">
+          
+       <div class="row">
+       <h2>Change a passward</h2>
+        <!--first row, title-->
+     </div>
+       <hr class="line">
+      </hr>  <!--border line-->
+       <div class="row">
+           <!--new row-->
+         <p class="input">Message:</p>
+         <!--sub title-->
+       </div>
+    
+       <div class="row">
+         <input class="message" type="text" id="userinput" value="your secured passward ">
+        
+        </div>
+        <hr class="line">
+      </hr>  
+         <!--the area box that present the passward-->
+     </div>   
+     </div>
+         <div class="row">
+         <div class="col-md-6">
+             <button class="button button5" id="btn" >Generate Passward</button>
+         </div>
+           <!--button of generateing random passward-->
+         <div class="col-md-6">
+             <button class="button2 button5" id="btn2">Copy to clipboard</button>
+         </div>
+         <!--button of copying the passward to clipboard-->
+     
+        </div>
+     
+     </div>
+ 
+ 
+ </div>
+
+<script>
+  
+  document.getElementById("btn").addEventListener('click',settingpassward);
+  //running the settingpassward function by pressing the button ID=btn
+ function settingpassward()
+ {
+  alert("please enter you desired length number of passward. It must be more than 7 characters and less than 128 characters");
+ //telling user to enter number for the length of his passward
+ var test=false;
+ //set test variable as false for purpose of making a while loop
+ while (test===false)
+ {
+     var long=prompt("your desired length:","0");
+     //input the desired length here
+     if (long>7 && long< 128)
+ {
+     alert("the length fulfill the requirement");
+ test=true;
+ //if the length fulfills the requirement, quit the loop
+ }
+ else 
+ {
+     alert("the length of passward either too long or too short");
+     }
+ //if length does not fulfill the requirement, cotinue the loop
+ }
+ var check=false
+ while (check===false){
+ var lowercase=confirm("do you want inclue lowercase?");
+ var uppercase=confirm("do you want include uppercase?");
+ var special=confirm("do you want to include special character?");
+ var number=confirm("do you want to include number character?");
+ 
+ 
+var i;
+var passward= [];
+var upperlower="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+//the array for upper and lower cases
+var numbers="0123456789"
+//the array for numerical characters
+var specialCharacter="\"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+//32 total
+//the array for 31 speecial characters'
+
+
+var result
+//cobine all array into one array called "random"
+ 
+    if (lowercase===false&&uppercase===false&&special===false&&number===false)
+    {
+     alert("this cannot be happened, please redo")   
+            }
+    else 
+     {
+        check=true;
+     }
+ }
+
+
+
+
+     for (i=0; i<=long; i++)
+     //loop through every character in the password
+ {  
+    var A;
+    var B;
+    var C;
+    var random=[A,B,C];
+        if (lowercase===true&&uppercase===true)
+            {var choice=Math.floor(Math.random() * 52);
+            A=upperlower[choice];
+            }
+        else if (lowercase===true && uppercase===false)
+           {var choice=Math.floor(Math.random() * 26)+26;
+            A=upperlower[choice];
+           }
+        else if (lowercase===false && uppercase===true)
+            {var choice=Math.floor(Math.random() * 26);
+            A=upperlower[choice];
+            }
+        else if (lowercase===false && uppercase===false)
+        {A=false;}
+        //check whether to use lowercase or uppercase character in this situation
+        ////////////////////////////////////////////////////
+        
+
+        if (number===true)
+            {var choice=Math.floor(Math.random()*10);}
+            {B=numbers[choice];}
+        if (number===false)
+        {B=false}
+        if (special===true)
+             {var choice=Math.floor(Math.random()*32);}
+             {C=specialCharacter[choice];}
+        if (special===false)
+        {C=false}
+        
+        //check wether to use number or special in this situation
+        ///////////////////////////////////////////////////
+
+        
+        if(A!==false&&B!==false&&C!==false)
+         {choice=Math.floor(Math.random()*3);}
+        else if(A!==false&&B!==false&&C===false)
+        {choice=Math.floor(Math.random()*2);}
+        else if(A!==false&&B===false&&C!==false)
+        {
+        random=[A,C]
+        choice=Math.floor(Math.random()*2);
+        }
+        else if(A!==false&&B===false&&C===false)
+        {choice=0;}
+        else if(A===false&&B!==false&&C===false)
+        {choice=1;}
+        else if(A===false&&B!==false&&C!==false)
+        {choice=Math.floor(Math.random()*2)+1;}
+        else if(A===false&&B===false&&C!==false)
+        {choice=2;}
+
+        //7 possibility for condition of whether using Characters, number and special character
+
+
+        passward[i-1]=random[choice];   
+        //recording erery element in the passward
+ }
+ var result=document.querySelector('.message')
+       //creating a variable that is the content in the message box  
+ alert(passward);
+ window.document.getElementById('userinput').value = passward;
+     //output the value of passward into the message box
+ 
+
+
+
+function copytoclip(){
+    //funtion for copying the output password into clipboard
+    var copyText= document.getElementById("userinput");
+    //creating a variable "copyText" and select the content in the message
+    copyText.select();
+   document.execCommand('copy')
+   //execute the copy command 
+  alert("Copied the text'"+copyText.value+"'");
+  //telling user that the contentn has been copied
+
+  }  document.getElementById("btn2").addEventListener('click',copytoclip);
+  //execute above command by press the button ID=btn2
+}
+ 
+</script>
+</body>
+</html>
+
