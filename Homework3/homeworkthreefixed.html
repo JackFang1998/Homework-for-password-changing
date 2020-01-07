@@ -106,12 +106,10 @@ var upperlower="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 var numbers="0123456789"
 //the array for numerical characters
 var specialCharacter="\"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-//32 total
-//the array for 31 speecial characters'
-
+//32 total speecial characters
 
 var result
-//cobine all array into one array called "random"
+    //combine all array into one array called "random"
  
     if (lowercase===false&&uppercase===false&&special===false&&number===false)
     {
@@ -121,10 +119,8 @@ var result
      {
         check=true;
      }
+     //deciding whether the decision of user is eligible. either move forward or re-choose
  }
-
-
-
 
      for (i=0; i<=long; i++)
      //loop through every character in the password
@@ -184,7 +180,7 @@ var result
         else if(A===false&&B===false&&C!==false)
         {choice=2;}
 
-        //7 possibility for condition of whether using Characters, number and special character
+        //7 possibility for condition of whether using Characters, numbers and special characters
 
 
         passward[i-1]=random[choice];   
@@ -192,12 +188,10 @@ var result
  }
  var result=document.querySelector('.message')
        //creating a variable that is the content in the message box  
- alert(passward);
+ alert("you new passward is:  "+ passward);
  window.document.getElementById('userinput').value = passward;
      //output the value of passward into the message box
  
-
-
 
 function copytoclip(){
     //funtion for copying the output password into clipboard
